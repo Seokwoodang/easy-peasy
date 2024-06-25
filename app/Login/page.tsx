@@ -1,3 +1,9 @@
+import AuthForm from "@/components/auth-form";
+
 export default function LoginPage() {
-  return <div>hello man</div>;
+  return (
+    <div>
+      <AuthForm />
+    </div>
+  );
 }

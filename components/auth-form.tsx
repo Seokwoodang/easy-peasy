@@ -3,11 +3,13 @@ import Link from "next/link";
 import { useFormState } from "react-dom";
 
 import { signup } from "@/action/auth-action";
+import { testing } from "@/action/test-action";
 
 export type FormState = {
   data: {
     email: string;
     password: string;
+    nickname: string;
   };
   errors?: {
     email?: string;
@@ -18,10 +20,13 @@ export type FormState = {
 
 export default function AuthForm() {
   const [formState, formAction] = useFormState<FormState>(signup, {
-    data: { email: "", password: "" },
+    data: { email: "ssssss", password: "", nickname: "" },
     errors: {},
     isSubmitting: false,
   });
+
+  console.log(formState);
+
   return (
     <form id="auth-form" action={formAction}>
       <div>
@@ -35,12 +40,16 @@ export default function AuthForm() {
         <label htmlFor="password">Password</label>
         <input type="password" name="password" id="password" />
       </p>
+      <p>
+        <label htmlFor="nickname">Nickname</label>
+        <input name="nickname" id="nickname" />
+      </p>
       {formState.errors && (
         <ul>
-          {Object.keys(formState.errors).map((key) => {
+          {Object.keys(formState.errors).map((error) => {
             const errorMessage =
-              formState.errors![key as keyof typeof formState.errors];
-            return errorMessage && <li key={key}>{errorMessage}</li>;
+              formState.errors![error as keyof typeof formState.errors];
+            return errorMessage && <li key={error}>{errorMessage}</li>;
           })}
         </ul>
       )}

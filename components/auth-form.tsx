@@ -25,8 +25,6 @@ export default function AuthForm() {
     isSubmitting: false,
   });
 
-  console.log(formState);
-
   return (
     <form id="auth-form" action={formAction}>
       <div>

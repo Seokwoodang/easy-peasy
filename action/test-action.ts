@@ -24,11 +24,39 @@ export const insertTestData = async ({
 }: {
   testTwo: string;
   hello: boolean;
-}): Promise<TestDataType[] | null> => {
-  const { data } = await supabase.from("TEST-DATA").insert({
-    testTwo,
-    hello,
-  });
+}) => {
+  try {
+    const data = await supabase.from("TEST-DATA").insert({
+      testTwo,
+      hello,
+    });
+    return data;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+};
 
-  return data;
+export const updateTestData = async ({
+  id,
+  testTwo,
+  hello,
+}: {
+  id: string;
+  testTwo: string;
+  hello: boolean;
+}) => {
+  try {
+    const data = await supabase
+      .from("TEST-DATA")
+      .update({
+        testTwo,
+        hello,
+      })
+      .eq("id", id);
+    return data;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
 };

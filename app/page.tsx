@@ -4,6 +4,7 @@ import {
   TestDataType,
   getTestData,
   insertTestData,
+  updateTestData,
 } from "@/action/test-action";
 import { useEffect, useState } from "react";
 
@@ -32,7 +33,14 @@ export default function Home() {
           insertTestData({ hello: false, testTwo: "hello" });
         }}
       >
-        hehe
+        insert
+      </button>
+      <button
+        onClick={() => {
+          updateTestData({});
+        }}
+      >
+        update
       </button>
     </main>
   );

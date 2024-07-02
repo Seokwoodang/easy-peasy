@@ -2,6 +2,7 @@
 
 import {
   TestDataType,
+  deleteTestData,
   getTestData,
   insertTestData,
   updateTestData,
@@ -37,10 +38,23 @@ export default function Home() {
       </button>
       <button
         onClick={() => {
-          updateTestData({});
+          updateTestData({
+            id: "43f53aec-164c-4683-a5d9-8fc4305d2cea",
+            hello: false,
+            testTwo: "update",
+          });
         }}
       >
         update
+      </button>
+      <button
+        onClick={() => {
+          deleteTestData({
+            id: "43f53aec-164c-4683-a5d9-8fc4305d2cea",
+          });
+        }}
+      >
+        delete
       </button>
     </main>
   );

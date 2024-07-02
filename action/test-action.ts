@@ -60,3 +60,13 @@ export const updateTestData = async ({
     return null;
   }
 };
+
+export const deleteTestData = async ({ id }: { id: string }) => {
+  try {
+    const data = await supabase.from("TEST-DATA").delete().eq("id", id);
+    return data;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+};

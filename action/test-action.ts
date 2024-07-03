@@ -7,10 +7,7 @@ export type TestDataType = Tables<"TEST-DATA">;
 
 export const getTestData = async (): Promise<TestDataType[] | null> => {
   try {
-    const { data } = await supabase
-      .from("TEST-DATA")
-      .select("*")
-      .eq("testTwo", "blabla");
+    const { data } = await supabase.from("TEST-DATA").select("*");
     return data;
   } catch (error) {
     console.log(error);
@@ -64,6 +61,7 @@ export const updateTestData = async ({
 export const deleteTestData = async ({ id }: { id: string }) => {
   try {
     const data = await supabase.from("TEST-DATA").delete().eq("id", id);
+    console.log(data);
     return data;
   } catch (error) {
     console.log(error);

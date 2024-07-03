@@ -9,3 +9,10 @@ export async function getUserData() {
   const data = await supabase.from("TEST-DATA").select("*");
   return data;
 }
+
+export async function userSignup() {
+  try {
+  } catch (error) {
+    console.log(error);
+  }
+}

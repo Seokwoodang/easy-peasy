@@ -7,10 +7,22 @@ import {
   insertTestData,
   updateTestData,
 } from "@/action/test-action";
+import { createClient } from "@/supabase/server";
 import { useEffect, useState } from "react";
 
 export default function Home() {
   const [test, setTest] = useState<TestDataType[] | null>();
+
+  // const supabase = createClient();
+
+  // useEffect(() => {
+  //   const test = async () => {
+  //     const { data } = await supabase.from("TEST-DATA").select("*");
+  //     console.log(data);
+  //   };
+
+  //   test();
+  // });
 
   useEffect(() => {
     getTestData()
@@ -31,7 +43,7 @@ export default function Home() {
       </div>
       <button
         onClick={() => {
-          insertTestData({ hello: false, testTwo: "hello" });
+          insertTestData({ hello: false, testTwo: "hedddddllo" });
         }}
       >
         insert

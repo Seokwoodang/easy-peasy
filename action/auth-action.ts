@@ -35,7 +35,6 @@ export async function signup(
   //   };
   // }
 
-  console.log("nnnn");
   try {
     console.log("후후후");
     const { data, error } = await supabase.auth.signUp({

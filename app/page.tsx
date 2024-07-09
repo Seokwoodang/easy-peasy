@@ -9,20 +9,10 @@ import {
 } from "@/action/test-action";
 import { createClient } from "@/supabase/server";
 import { useEffect, useState } from "react";
+import { postingPost } from "./test";
 
 export default function Home() {
   const [test, setTest] = useState<TestDataType[] | null>();
-
-  // const supabase = createClient();
-
-  // useEffect(() => {
-  //   const test = async () => {
-  //     const { data } = await supabase.from("TEST-DATA").select("*");
-  //     console.log(data);
-  //   };
-
-  //   test();
-  // });
 
   useEffect(() => {
     getTestData()
@@ -34,6 +24,15 @@ export default function Home() {
       });
   }, []);
 
+  const handleSubmit = async () => {
+    try {
+      const result = await postingPost({ hello: false, testTwo: "hedddddllo" });
+      console.log("Post created successfully:", result);
+    } catch (error) {
+      console.error("Failed to create post:", error);
+    }
+  };
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div>
@@ -43,7 +42,8 @@ export default function Home() {
       </div>
       <button
         onClick={() => {
-          insertTestData({ hello: false, testTwo: "hedddddllo" });
+          // insertTestData({ hello: false, testTwo: "hedddddllo" });
+          handleSubmit();
         }}
       >
         insert

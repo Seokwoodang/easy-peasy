@@ -9,7 +9,7 @@ import {
 } from "@/action/test-action";
 import { createClient } from "@/supabase/server";
 import { useEffect, useState } from "react";
-import { postingPost } from "./test";
+import { getServiceData, postingPost } from "./test";
 
 export default function Home() {
   const [test, setTest] = useState<TestDataType[] | null>();
@@ -32,6 +32,15 @@ export default function Home() {
       console.error("Failed to create post:", error);
     }
   };
+
+  useEffect(() => {
+    const aa = async () => {
+      const data = await getServiceData();
+      console.log(data);
+    };
+
+    aa();
+  }, []);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">

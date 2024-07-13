@@ -28,6 +28,26 @@ export async function POST(request: Request) {
   }
 }
 
+export async function GET() {
+  try {
+    const supabase = createClient();
+
+    const { data, error } = await supabase.from("TEST-DATA").select("*");
+    if (error) {
+      console.error("Supabase select error:", error);
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+
+    return NextResponse.json({ data: data }, { status: 200 });
+  } catch (error) {
+    console.error("Error inserting data:", error);
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 }
+    );
+  }
+}
+
 export const INSERT = async ({
   testTwo,
   hello,

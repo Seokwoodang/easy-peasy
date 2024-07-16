@@ -14,6 +14,8 @@ import { getServiceData, postingPost } from "./test";
 export default function Home() {
   const [test, setTest] = useState<TestDataType[] | null>();
 
+  console.log("test");
+
   useEffect(() => {
     getTestData()
       .then((data) => {

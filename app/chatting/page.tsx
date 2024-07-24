@@ -1,9 +1,11 @@
 import supabase from "@/supabase/supabaseClient";
+import { useState } from "react";
 
 export default function ChattingPage() {
+  const [step, setStep] = useState(1);
   // Create a function to handle inserts
-  const handleInserts = (payload) => {
-    console.log("Change received!", payload);
+  const handleInserts = () => {
+    console.log("Change received!");
   };
 
   // Listen to inserts
@@ -16,5 +18,9 @@ export default function ChattingPage() {
     // supabase.channel('room1').on('')
   };
 
-  return <div>채팅페이지 입니당</div>;
+  return (
+    <div>
+      <div>채팅페이지</div>
+    </div>
+  );
 }

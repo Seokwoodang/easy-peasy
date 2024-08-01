@@ -10,6 +10,7 @@ export default function ChattingPage() {
   // Simple function to log any messages we receive
   function messageReceived(payload) {
     console.log(payload);
+    const aa = payload;
   }
 
   // Subscribe to the Channel

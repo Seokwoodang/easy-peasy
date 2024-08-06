@@ -36,7 +36,6 @@ export default function Home() {
   useEffect(() => {
     const aa = async () => {
       const data = await getServiceData();
-      console.log(data);
     };
 
     aa();
